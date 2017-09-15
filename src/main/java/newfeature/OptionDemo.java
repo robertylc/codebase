@@ -7,7 +7,7 @@ import java.util.Optional;
  */
 public class OptionDemo {
     /**
-     * Optional 主要用于替换掉多级的 if（obj == null），使代码更干净
+     * Optional 主要用于替换掉<s>多级</s>的 if（obj == null），使代码更干净
      */
     public static void main(String[] args) {
 
