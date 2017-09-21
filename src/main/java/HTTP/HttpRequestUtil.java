@@ -67,7 +67,7 @@ public class HttpRequestUtil {
 			json = JSONObject.fromObject(URLDecoder.decode(reqstring,"UTF-8"));
 			return json;
 		} catch (UnsupportedEncodingException e) {
-			throw new ("HttpServletRequest getPostJSONObject error",e);
+			throw new RuntimeException();
 		}
     }
     /**
