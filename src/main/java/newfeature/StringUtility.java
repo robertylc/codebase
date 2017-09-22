@@ -12,6 +12,7 @@ import java.util.List;
  * Created by robertpicyu on 2017/9/22.
  */
 public class StringUtility {
+
     static public String[] getLines(String string){
         String[] result;
 
