@@ -1,25 +1,20 @@
-package DOC;
+package newfeature;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
 
 /**
- * Created by robertpicyu on 2017/8/31.
+ * Created by robertpicyu on 2017/9/21.
  */
-public class JsonDemo {
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+public class reflectDemo {
+    public static void main(String[] args) {
+
     }
 
-    public static void main(String[] args) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        DemoBean bean = new DemoBean();
-        bean.setObjVal(new InnerBean());
-        String jsonStr = objectMapper.writeValueAsString(bean);
-        System.out.printf(jsonStr);
-    }
+    @Target(ElementType.PACKAGE)
+    public @interface DemoAnnotation{}
 }
+
 class DemoBean{
     private String strVal;
     private int intVal;
@@ -70,3 +65,5 @@ class InnerBean{
         this.strVal = strVal;
     }
 }
+
+
