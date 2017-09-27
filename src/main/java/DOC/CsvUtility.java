@@ -1,5 +1,8 @@
 package DOC;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -114,10 +117,16 @@ public class CsvUtility {
 
 
     public static void main(String[] args) {
+        //StringUtils;
+        //stream
         String csvLine = "9999\tteststring\t333";
-        TestBean bean = CsvUtility.getObject(csvLine,TestBean.class);
+ //       TestBean bean = CsvUtility.getObject(csvLine,TestBean.class);
 
-        String csvpath = "E:\\private_project\\codebase\\src\\main\\resource\\demo.csv";
+//        String csvpath = "E:\\private_project\\codebase\\src\\main\\resource\\cld_ppyun_test_cld_live80.csv";
+//        String csvpath = "E:\\private_project\\codebase\\src\\main\\resource\\cld_ppyun_channel_5min_flowbw_uvvvwt_2file.csv";
+        String csvpath = "E:\\private_project\\codebase\\src\\main\\resource\\cld_ppyun_test_cld_vod80_2.csv";
+//        String csvpath = "E:\\private_project\\codebase\\src\\main\\resource\\demo_vod.csv";
+
         FileReader reader = null;
         try {
             reader = new FileReader(csvpath);
@@ -128,9 +137,21 @@ public class CsvUtility {
         BufferedReader breader = new BufferedReader(reader);
 
         try {
-            for(String s = breader.readLine(); StringUtils.isNotEmpty(s); s = breader.readLine()) {
-                System.out.println(s);
-            }
+            List<String> lines = FileUtils.readLines(new File(csvpath), "UTF-8");
+
+            lines.stream().filter(
+                    s->{
+                        String[] segs = s.split("\t");
+                        String hour = segs[1];
+                        String min = segs[2];
+                        String cid = segs[5];
+                        if (cid.equals("1141") && hour.equals("22") && min.equals("15")) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    }).forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }

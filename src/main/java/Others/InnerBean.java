@@ -1,11 +1,12 @@
 package Others;
 
 public class InnerBean{
+    private Integer intVal;
     private String strVal;
 
 
     public String getStrVal() {
-        System.out.println("from inner");
+//        System.out.println("from inner");
         return strVal;
     }
     public void setStrVal(String strVal) {
@@ -14,5 +15,11 @@ public class InnerBean{
 
     public String getInnerStr(){return "innert" +strVal;}
 
+    public Integer getIntVal() {
+        return intVal;
+    }
 
+    public void setIntVal(Integer intVal) {
+        this.intVal = intVal;
+    }
 }

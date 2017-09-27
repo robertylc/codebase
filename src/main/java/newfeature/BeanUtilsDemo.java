@@ -21,5 +21,7 @@ public class BeanUtilsDemo {
         //PropertyUtils.copyProperties();  // 复杂数据类型(array\list\map)会抛异常。
 
         //ConvertUtils.convert() // 支持array类型 和 primate 类型
+
+        // 缺少累加 BeanUtils.add(bean1 , bean2); 可以考虑自己添加个
     }
 }
