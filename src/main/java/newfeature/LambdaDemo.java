@@ -1,9 +1,11 @@
 package newfeature;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.collections.map.HashedMap;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by robertpicyu on 2017/9/26.
@@ -16,7 +18,7 @@ public class LambdaDemo {
     public static void main(String[] args) {
 
         /**
-         * Lambda:  编译器自动构建  “内部匿名类”（不保存this指针）
+         * Lambda:  编译器自动构建  “内部匿名类”（不保存this指针？？）
          *
          * 调用格式：
          * 入参 ：
@@ -33,6 +35,9 @@ public class LambdaDemo {
         LambdaDemo.execute(System.out::print);
         List test = new LinkedList();
         test.stream().forEach(System.out::println);
+
+        Map<String, Object> keyValues = new HashedMap();
+        keyValues.forEach((key,val)->test.size());  // ?? 能访问test变量，内部变量！
 
         /**
          * 一些已定义的lambda 接口：
