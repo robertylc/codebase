@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -106,6 +107,13 @@ public class FileOperateDemo {
 
     }
     public static void main(String[] args) {
+        /**
+         * 几个路径：
+         * 1、user.dir、user.tmp。
+         * 2、project root。
+         * 3、class root。
+         */
+        System.out.println(Paths.get("").toAbsolutePath());
 
     }
 }
