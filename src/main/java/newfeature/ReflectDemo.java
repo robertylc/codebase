@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReflectDemo {
+
     static Map<String,Long> map = new HashMap<String, Long>();
     public static void main(String[] args) throws NoSuchFieldException {
         /* 泛函 */
