@@ -57,9 +57,9 @@ public class StringUtilsDemo {
          */
 
         /**
-         *  regular :
+         *  正则表达式 : string属性中的几个个接口 match\replaceAll\split
          *      匹配、提取、拆分、替换
-         *  子串互相换 :
+         *  子串饮用 :
          *      repalce("(...)(s2Reg)(...)(s2Reg)(...)","$1$4$3$2$5")
          *   采用简写：
          *      \d、\w、\s（空格）、^ $（首尾）
@@ -74,6 +74,7 @@ public class StringUtilsDemo {
         String[] target = regTest.split("\\d{2,}");
         target = findAll(regTest,"\\d{2,}");
         regTest = regTest.replaceAll("\\d{2,}(\\.\\w+)","$1");
+
 
 
         /* 连接、分割 */
@@ -93,8 +94,8 @@ public class StringUtilsDemo {
         stringBuilder.insert(5,"hhhh");
         StringUtils.removeStart("start dddd","start");
         StringUtils.remove("start dddd","start");
-        regTest = StringUtils.strip("  aa bbb  ");
-        regTest = StringUtils.trim("  aaa bbb  ");
+        regTest = StringUtils.strip("  aa bbb  ");  //移除首尾空格
+        regTest = StringUtils.trim("  aaa bbb  ");  //移除控制字符（<32）
         StringUtils.replace("","","");
 
         /* 其它:   大、小写  */
@@ -111,6 +112,7 @@ public class StringUtilsDemo {
         StringUtils.contains("", "");
         StringUtils.containsAny("", "");    //字符集判断
         StringUtils.isAlpha("");
+
 
     }
 }
