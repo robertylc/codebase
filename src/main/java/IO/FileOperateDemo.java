@@ -93,6 +93,9 @@ public class FileOperateDemo {
             FileUtils.listFilesAndDirs(file,null,null);
             FileUtils.iterateFilesAndDirs(file,null,null);
 
+            ThreadLocal threadLocal = new ThreadLocal();
+            threadLocal.get();
+
 
             /**
              * file name 工具：

@@ -38,16 +38,16 @@ public class StringUtilsDemo {
          *          首、尾添加：left、rightPad()
          *          中间插入：StringBuilder中的方法
          *      删除：
-         *          首尾删除
-         *      替换：
+         *          首尾删除\remove\strip\trim
+         *      修改：
          *          大、小写转换：
          *              capital（）、 upperCase()、switchCase()
          *          子串替换：
          *              replace()
          *          正则表达式：（使用String中的方法）
          *              math判断:
+         *              提取!!：
          *              splite():
-         *              提取：
          *              替换：replace（），支持正则表达式分组替换（组号$n）;
          *
          * 3、其它：
@@ -57,10 +57,11 @@ public class StringUtilsDemo {
          */
 
         /**
-         *  regular :
+         *  正则表达式 : string属性中的几个个接口 match\replaceAll\split
          *      匹配、提取、拆分、替换
-         *  子串互相换 :
+         *  子串引用 :
          *      repalce("(...)(s2Reg)(...)(s2Reg)(...)","$1$4$3$2$5")
+         *      （还可以在reg string中引用'\n'）
          *   采用简写：
          *      \d、\w、\s（空格）、^ $（首尾）
          *   几个非捕获组：
@@ -68,12 +69,14 @@ public class StringUtilsDemo {
          *          (?=)和(?<=)：前向锚定、后向锚定
          *          (?!X) (?<!X)：否锚定
          *          (?:) ： 非捕获，区别是会消费掉字符！！
+         *   懒惰模式：{}？、*？、+？
          *  */
         String regTest = "serg1.999.seg2.4444.seg3";
         regTest.matches(".*\\d+.*");
         String[] target = regTest.split("\\d{2,}");
         target = findAll(regTest,"\\d{2,}");
         regTest = regTest.replaceAll("\\d{2,}(\\.\\w+)","$1");
+
 
 
         /* 连接、分割 */
@@ -93,8 +96,8 @@ public class StringUtilsDemo {
         stringBuilder.insert(5,"hhhh");
         StringUtils.removeStart("start dddd","start");
         StringUtils.remove("start dddd","start");
-        regTest = StringUtils.strip("  aa bbb  ");
-        regTest = StringUtils.trim("  aaa bbb  ");
+        regTest = StringUtils.strip("  aa bbb  ");  //移除首尾空格
+        regTest = StringUtils.trim("  aaa bbb  ");  //移除控制字符（<32）
         StringUtils.replace("","","");
 
         /* 其它:   大、小写  */
@@ -111,6 +114,7 @@ public class StringUtilsDemo {
         StringUtils.contains("", "");
         StringUtils.containsAny("", "");    //字符集判断
         StringUtils.isAlpha("");
+
 
     }
 }
