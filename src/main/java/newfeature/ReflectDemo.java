@@ -17,6 +17,7 @@ public class ReflectDemo {
         Field filed = ReflectDemo.class.getDeclaredField("map");
         System.out.println(superClass.toString());
 
+
         Type[] paraTypes = ((ParameterizedType) superClass).getActualTypeArguments();
         Type genericType = filed.getGenericType();
         System.out.println("ReflectDemo.main" + genericType.getTypeName());
